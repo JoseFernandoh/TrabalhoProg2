@@ -1,22 +1,13 @@
 package br.com.trabPro2.model;
 
 public abstract class Pessoa {
-public char Nome;
-private char CPF;
+    protected long id;
 
-    public char getNome() {
-        return Nome;
+    public long getId() {
+        return id;
     }
 
-    public void setNome(char nome) {
-        Nome = nome;
-    }
-
-    public char getCPF() {
-        return CPF;
-    }
-
-    public void setCPF(char CPF) {
-        this.CPF = CPF;
+    public void setId(long id) {
+        this.id = id;
     }
 }

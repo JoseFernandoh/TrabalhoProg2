@@ -1,7 +1,5 @@
 package br.com.trabPro2.model;
 
-public class Gerente {
-    public char nome;
-    private char CPF;
+public class Gerente extends Funcionario implements PessoaFisica {
 
 }
