@@ -1,5 +1,5 @@
 package br.com.trabPro2.model;
 
-public class Presidente implements PessoaFisica,Diretoria {
+public class Presidente extends Funcionario implements PessoaFisica,Diretoria {
 
 }

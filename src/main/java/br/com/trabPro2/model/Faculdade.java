@@ -4,11 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Faculdade implements PessoaJuridica {
+    private long id;
     private Diretor diretor;
     private List<Curso> cursos = new ArrayList<>();
     private List<Coordenador> coordenadors = new ArrayList<>();
     private List<SecAcademica> secAcademicas = new ArrayList<>();
     private List<SecFinanceira> secFinanceiras = new ArrayList<>();
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public List<Coordenador> getCoordenadors() {
         return coordenadors;
