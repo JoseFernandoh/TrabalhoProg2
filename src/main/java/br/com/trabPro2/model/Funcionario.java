@@ -1,11 +1,17 @@
 package br.com.trabPro2.model;
 
-public class Coordenador {
+public abstract class Funcionario {
+    public char empresa;
     public char Nome;
-    public char CPF;
-    public char Curso;
-    public char Disciplina;
-    private float Salario;
+    private char CPF;
+
+    public char getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(char empresa) {
+        this.empresa = empresa;
+    }
 
     public char getNome() {
         return Nome;
@@ -23,22 +29,6 @@ public class Coordenador {
         this.CPF = CPF;
     }
 
-    public char getCurso() {
-        return Curso;
-    }
-
-    public void setCurso(char curso) {
-        Curso = curso;
-    }
-
-    public char getDisciplina() {
-        return Disciplina;
-    }
-
-    public void setDisciplina(char disciplina) {
-        Disciplina = disciplina;
-    }
-
     public float getSalario() {
         return Salario;
     }
@@ -46,4 +36,7 @@ public class Coordenador {
     public void setSalario(float salario) {
         Salario = salario;
     }
+
+    private float Salario;
 }
+

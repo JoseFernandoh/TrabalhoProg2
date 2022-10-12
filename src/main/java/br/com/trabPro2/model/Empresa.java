@@ -1,10 +1,8 @@
 package br.com.trabPro2.model;
 
-public class Agencia {
+public abstract class Empresa {
     public char Nome;
-    public char Endereco;
     private float Capital;
-    private char Cliente;
 
     public char getNome() {
         return Nome;
@@ -12,14 +10,6 @@ public class Agencia {
 
     public void setNome(char nome) {
         Nome = nome;
-    }
-
-    public char getEndereco() {
-        return Endereco;
-    }
-
-    public void setEndereco(char endereco) {
-        Endereco = endereco;
     }
 
     public float getCapital() {
@@ -30,11 +20,16 @@ public class Agencia {
         Capital = capital;
     }
 
-    public char getCliente() {
-        return Cliente;
+    public int getNumerodefuncionario() {
+        return Numerodefuncionario;
     }
 
-    public void setCliente(char cliente) {
-        Cliente = cliente;
+    public void setNumerodefuncionario(int numerodefuncionario) {
+        Numerodefuncionario = numerodefuncionario;
     }
+
+    private int Numerodefuncionario;
+
+
+
 }
