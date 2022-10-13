@@ -10,6 +10,8 @@ public class Disciplina {
     private int limiteAlunoMinimo;
     private int limiteAlunoMaximo;
 
+
+
     public long getId() {
         return id;
     }
