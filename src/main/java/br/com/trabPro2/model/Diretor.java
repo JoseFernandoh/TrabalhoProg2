@@ -15,7 +15,7 @@ public class Diretor extends Funcionario implements PessoaFisica,Diretoria{
         this.coordenadorFila.addAll(coordenadorFila);
     }
 
-    public void atenderCordenador() throws FilaVaziaException {
+    public void atenderFila() throws FilaVaziaException {
         Coordenador coordenador = this.coordenadorFila.pegarRemove();
         System.out.println("Atendendo Coordenador");
     }
