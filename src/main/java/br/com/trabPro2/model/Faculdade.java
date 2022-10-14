@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Faculdade implements PessoaJuridica {
     private long id;
+    private String nomeFaculdade;
+    private int anosFaculdade;
     private Diretor diretor;
     private List<Curso> cursos = new ArrayList<>();
     private List<Coordenador> coordenadors = new ArrayList<>();
@@ -56,8 +58,25 @@ public class Faculdade implements PessoaJuridica {
         return cursos;
     }
 
+
     public void setCursos(List<Curso> cursos) {
 
         this.cursos = cursos;
+    }
+
+    public String getNomeFaculdade() {
+        return nomeFaculdade;
+    }
+
+    public void setNomeFaculdade(String nomeFaculdade) {
+        this.nomeFaculdade = nomeFaculdade;
+    }
+
+    public int getAnosFaculdade() {
+        return anosFaculdade;
+    }
+
+    public void setAnosFaculdade(int anosFaculdade) {
+        this.anosFaculdade = anosFaculdade;
     }
 }
