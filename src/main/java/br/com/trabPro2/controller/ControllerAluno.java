@@ -2,15 +2,28 @@ package br.com.trabPro2.controller;
 import  java.util.Scanner;
 import br.com.trabPro2.model.Aluno;
 
+import br.com.trabPro2.model.Aluno;
+
+import java.util.Scanner;
+
 public class ControllerAluno {
 
-    public void SalvarAluno(){
-        Aluno l = new Aluno();
-        Scanner Aluno = new Scanner(System.in);
-        String str;
-        System.out.println("Escreva sua Matricula:");
-        str = Aluno.nextLine();
-        System.out.println("Bem Vindo"+ str);
-        Aluno.close();
+
+    public Aluno criarAluno(){
+
+        Scanner scan = new Scanner(System.in);
+           Aluno aluno = new Aluno ();
+
+        System.out.println("Digite sua matricula:");
+         aluno.setMatricula(scan.nextInt());
+
+        System.out.println("Informe sua ID");
+        aluno.setId(scan.nextLong());
+
+        System.out.println("Digite seu nome:");
+        aluno.setNome(scan.nextLine());
+
+return aluno ;
+
     }
 }

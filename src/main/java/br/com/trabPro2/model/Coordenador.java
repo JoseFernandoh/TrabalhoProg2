@@ -4,6 +4,7 @@ import br.com.trabPro2.util.Fila;
 import br.com.trabPro2.util.FilaVaziaException;
 
 public class Coordenador extends Funcionario implements PessoaFisica,Diretoria {
+
     private Fila<Professor> professorFila = new Fila<>();
     private Fila<Aluno> alunoFila = new Fila<>();
 

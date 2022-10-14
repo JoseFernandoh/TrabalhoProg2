@@ -1,18 +1,21 @@
 package br.com.trabPro2.controller;
 import br.com.trabPro2.model.ContaCorrente;
+import br.com.trabPro2.model.ContaPoupanca;
 
 import java.util.Scanner;
-public class ControllerContaPoupanca {
+import java.util.concurrent.Callable;
 
-    public void SalvarContaPoupanca(){
-        ContaCorrente c= new ContaCorrente();
-        Scanner ContraCorrente = new Scanner(System.in);
-        String str,src;
-        System.out.println("Digite o Titular:");
-        System.out.println("Digite o Gererente:");
-        str  = ContraCorrente.nextLine();
-        src = ContraCorrente.nextLine();
-        System.out.println("Bem vindo"+ str+ src);
-        ContraCorrente.close();
+public class ControllerContaPoupanca {
+    public ContaPoupanca CriarContaCorrente(){
+
+        Scanner scan = new Scanner(System.in);
+        ContaPoupanca contapoupanca = new ContaPoupanca();
+        System.out.println("Digite sua Conta da Conta da Conta Poupança:");
+        contapoupanca.setConta(scan.nextInt());
+        System.out.println("Digite o Saldo da Conta Poupança");
+        contapoupanca.setSaldo(scan.nextFloat());
+        System.out.println("Digite a Agencia da Conta Poupança");
+        contapoupanca.setAgencia(scan.nextInt());
+        return contapoupanca;
     }
 }
