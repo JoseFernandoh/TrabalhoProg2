@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Curso {
     private long id;
+    private String nomeDisciplina;
+    private int numeroDisciplina;
     private Coordenador coordenador;
     private List<Disciplina> disciplinas = new ArrayList<>();
 
@@ -30,5 +32,21 @@ public class Curso {
 
     public void setDisciplinas(List<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+
+    public String getNomeDisciplina() {
+        return nomeDisciplina;
+    }
+
+    public void setNomeDisciplina(String nomeDisciplina) {
+        this.nomeDisciplina = nomeDisciplina;
+    }
+
+    public int getNumeroDisciplina() {
+        return numeroDisciplina;
+    }
+
+    public void setNumeroDisciplina(int numeroDisciplina) {
+        this.numeroDisciplina = numeroDisciplina;
     }
 }
