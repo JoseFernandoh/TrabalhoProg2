@@ -3,20 +3,11 @@ package br.com.trabPro2.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Disciplina {
-    private long id;
+public class Disciplina extends AbstractClass {
     private Professor professor;
     private List<Aluno> alunos = new ArrayList<>();
     private int limiteAlunoMinimo;
     private int limiteAlunoMaximo;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public Professor getProfessor() {
         return professor;

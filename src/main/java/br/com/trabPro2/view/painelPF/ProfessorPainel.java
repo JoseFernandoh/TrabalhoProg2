@@ -1,11 +1,24 @@
 package br.com.trabPro2.view.painelPF;
 
+import br.com.trabPro2.db.ControllerDB;
+import br.com.trabPro2.db.DB;
+import br.com.trabPro2.model.Professor;
+import br.com.trabPro2.util.ControllerPainel;
+import br.com.trabPro2.view.TelaPrincipal;
+
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class ProfessorPainel extends JPanel {
 
-    public ProfessorPainel() {
+    private final JFrame jframe;
+
+    public ProfessorPainel(JFrame jFrame) {
+
+        this.jframe = jFrame;
 
         setLayout(new BorderLayout());
 
@@ -47,6 +60,7 @@ public class ProfessorPainel extends JPanel {
 
         input = new JTextField();
         input.setPreferredSize(new Dimension(150,20));
+        input.setName("Nome");
         form.add(input, gridBagConstraints);
 
         gridBagConstraints.gridy++;
@@ -58,9 +72,16 @@ public class ProfessorPainel extends JPanel {
 
         gridBagConstraints.gridy++;
 
-        input = new JTextField();
-        input.setPreferredSize(new Dimension(150,20));
-        form.add(input, gridBagConstraints);
+        try{
+            input = new JFormattedTextField(new MaskFormatter("##/##/####"));
+            input.setPreferredSize(new Dimension(150,20));
+            input.setName("DataNascimento");
+            form.add(input, gridBagConstraints);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Data Invalida");
+            e.printStackTrace();
+        }
+
 
         gridBagConstraints.gridy++;
 
@@ -71,9 +92,16 @@ public class ProfessorPainel extends JPanel {
 
         gridBagConstraints.gridy++;
 
-        input = new JTextField();
-        input.setPreferredSize(new Dimension(150,20));
-        form.add(input, gridBagConstraints);
+        try{
+            input = new JFormattedTextField(new MaskFormatter("###.###.###-##"));
+            input.setPreferredSize(new Dimension(150,20));
+            input.setName("CPF");
+            form.add(input, gridBagConstraints);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "CPF Invalido");
+            e.printStackTrace();
+        }
+
 
         painel.add(form, BorderLayout.CENTER);
 
@@ -83,9 +111,32 @@ public class ProfessorPainel extends JPanel {
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
 
+        butao.addActionListener(e-> {
+            jframe.dispose();
+            new TelaPrincipal();
+        });
+
         butao = new JButton("Cadastro");
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
+
+        butao.addActionListener(e -> {
+            try {
+                Professor professor = new Professor();
+                professor.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
+                professor.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
+                professor.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
+
+                ControllerDB.addDB(DB.dbProfesor, professor);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
+                ex.printStackTrace();
+            }
+
+            ControllerPainel.clearForm(form);
+
+        });
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
 

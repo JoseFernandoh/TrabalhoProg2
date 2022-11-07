@@ -3,8 +3,7 @@ package br.com.trabPro2.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Faculdade implements PessoaJuridica {
-    private long id;
+public class Faculdade extends Empresa implements PessoaJuridica {
     private String nomeFaculdade;
     private int anosFaculdade;
     private Diretor diretor;
@@ -12,14 +11,6 @@ public class Faculdade implements PessoaJuridica {
     private List<Coordenador> coordenadors = new ArrayList<>();
     private List<SecAcademica> secAcademicas = new ArrayList<>();
     private List<SecFinanceira> secFinanceiras = new ArrayList<>();
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public List<Coordenador> getCoordenadors() {
         return coordenadors;
