@@ -1,6 +1,5 @@
 package br.com.trabPro2.view;
 
-import br.com.trabPro2.model.Coordenador;
 import br.com.trabPro2.view.painelPF.*;
 
 import javax.swing.*;
