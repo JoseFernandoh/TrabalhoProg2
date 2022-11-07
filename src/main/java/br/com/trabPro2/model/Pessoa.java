@@ -7,6 +7,8 @@ public abstract class Pessoa {
 
     protected long id;
     protected String nome;
+
+    protected String cpf_cnpj;
     protected List<Conta> contas = new ArrayList<>();
     public long getId() {
         return id;
@@ -24,11 +26,15 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
+    public String getCpf_cnpj() {
+        return cpf_cnpj;
+    }
+
     public List<Conta> getContas() {
         return contas;
     }
 
-    public void setContas(List<Conta> contas) {
+    /*public void setContas(List<Conta> contas) {
         this.contas = contas;
-    }
+    }*/
 }
