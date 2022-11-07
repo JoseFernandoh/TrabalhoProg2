@@ -3,7 +3,7 @@ package br.com.trabPro2.view;
 import javax.swing.*;
 import java.awt.*;
 
-public class TelaPrincipal extends TelaGeral {
+public class  TelaPrincipal extends TelaGeral {
 
     private final JLabel title = new JLabel("Escolha a opção desejada");
 
