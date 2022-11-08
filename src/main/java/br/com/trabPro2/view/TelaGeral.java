@@ -15,12 +15,15 @@ public class TelaGeral extends JFrame {
         super.setLocationRelativeTo(null);
         super.setResizable(false);
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        super.setVisible(true);
     }
 
     @Override
     public void setSize(Dimension d) {
         super.setSize(d);
         super.setLocationRelativeTo(null);
+    }
+
+    public void inicializarPrograma(){
+        this.setVisible(true);
     }
 }
