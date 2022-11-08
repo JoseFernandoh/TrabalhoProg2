@@ -1,10 +1,11 @@
 package br.com.trabPro2.view.painelPF;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class CoordernadorPainel extends JPanel {
 
-    public CoordenadorPainel() {
+    public CoordernadorPainel() {
 
         setLayout(new BorderLayout());
 

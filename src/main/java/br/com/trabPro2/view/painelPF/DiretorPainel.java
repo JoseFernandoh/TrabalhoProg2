@@ -1,6 +1,7 @@
 package br.com.trabPro2.view.painelPF;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class DiretorPainel extends JPanel {
 

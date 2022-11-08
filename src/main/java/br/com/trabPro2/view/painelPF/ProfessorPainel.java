@@ -1,6 +1,7 @@
 package br.com.trabPro2.view.painelPF;
 
 import br.com.trabPro2.db.ControllerDB;
+import br.com.trabPro2.db.DB;
 import br.com.trabPro2.model.Professor;
 import br.com.trabPro2.util.ControllerPainel;
 import br.com.trabPro2.view.TelaPrincipal;
@@ -111,7 +112,8 @@ public class ProfessorPainel extends JPanel {
 
         butao.addActionListener(e-> {
             jframe.dispose();
-            new TelaPrincipal();
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.inicializarPrograma();
         });
 
         butao = new JButton("Cadastro");
@@ -133,7 +135,6 @@ public class ProfessorPainel extends JPanel {
             }
 
             ControllerPainel.clearForm(form);
-
         });
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
