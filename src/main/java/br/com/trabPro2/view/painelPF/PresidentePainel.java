@@ -30,7 +30,7 @@ public class PresidentePainel extends JPanel {
         label.setPreferredSize(new Dimension(450, 30));
         label.setFont(new Font("Arial", Font.PLAIN, 25));
         label.setHorizontalTextPosition(SwingConstants.CENTER);
-        painel.add(label, BorderLayout.PAGE_START);
+        painel.add(label, BorderLayout.PAGE_START);.
 
         JPanel form = new JPanel(new GridBagLayout());
 
