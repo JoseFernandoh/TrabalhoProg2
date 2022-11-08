@@ -14,8 +14,8 @@ public class TelaPessoaFisica extends TelaGeral{
         tab.addTab("Presidente", new PresidentePainel());
         tab.addTab("Diretor", new DiretorPainel());
         tab.addTab("Coordenador", new CoordernadorPainel());
-        tab.addTab("SecAcademico", new SecAcademicoPainel());
-        tab.addTab("SecFinanceiro", new SecFinanceiroPainel());
+        tab.addTab("SecAcademico", new SecAcademicoPainel(this));
+        tab.addTab("SecFinanceiro", new SecFinanceiroPainel(this));
         tab.addTab("Gerente", new GerentePainel());
 
         this.add(tab);
