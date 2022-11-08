@@ -1,7 +1,6 @@
 package br.com.trabPro2.view.painelPF;
 
 import br.com.trabPro2.db.ControllerDB;
-import br.com.trabPro2.db.DB;
 import br.com.trabPro2.model.Professor;
 import br.com.trabPro2.util.ControllerPainel;
 import br.com.trabPro2.view.TelaPrincipal;
@@ -9,7 +8,6 @@ import br.com.trabPro2.view.TelaPrincipal;
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class ProfessorPainel extends JPanel {
@@ -30,7 +28,7 @@ public class ProfessorPainel extends JPanel {
 
     }
 
-    public JPanel painelCadastro(){
+    private JPanel painelCadastro(){
         JPanel painel = new JPanel(new BorderLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         JLabel label;
@@ -127,7 +125,7 @@ public class ProfessorPainel extends JPanel {
                 professor.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
                 professor.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
 
-                ControllerDB.addDB(DB.dbProfesor, professor);
+                ControllerDB.addDB(professor);
 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
