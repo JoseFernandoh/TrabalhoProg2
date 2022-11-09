@@ -136,7 +136,7 @@ public class SecAcademicoPainel extends JPanel {
             ControllerPainel.clearForm(form);
 
         });
-
+        
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
         return painel;

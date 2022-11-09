@@ -64,7 +64,7 @@ public class PresidentePainel extends JPanel {
         form.add(label, gridBagConstraints);
 
         gridBagConstraints.gridy++;
-
+        
         try{
             input = new JFormattedTextField(new MaskFormatter("##/##/####"));
             input.setPreferredSize(new Dimension(150,20));
@@ -113,6 +113,7 @@ public class PresidentePainel extends JPanel {
         butao = new JButton("Cadastro");
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
+        
         try {
             Presidente presidente = new Presidente();
             presidente.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
@@ -131,5 +132,3 @@ public class PresidentePainel extends JPanel {
         return painel;
     }
 }
-
-

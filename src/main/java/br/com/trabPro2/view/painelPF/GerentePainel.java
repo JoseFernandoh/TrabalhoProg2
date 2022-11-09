@@ -6,8 +6,8 @@ import br.com.trabPro2.model.Professor;
 import br.com.trabPro2.util.ControllerPainel;
 
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
 import java.awt.*;
+import javax.swing.text.MaskFormatter;
 import java.text.SimpleDateFormat;
 
 public class GerentePainel extends JPanel {
@@ -15,12 +15,13 @@ public class GerentePainel extends JPanel {
     public GerentePainel() {
 
         setLayout(new BorderLayout());
+        
+        JTabbedPane tab = new JTabbedPane();
 
-          JTabbedPane tab = new JTabbedPane();
+        tab.addTab("Cadastro", painelCadastro());
 
-            tab.addTab("Cadastro", painelCadastro());
+        this.add(tab);
 
-            this.add(tab);
 
     }
 
@@ -136,5 +137,3 @@ public class GerentePainel extends JPanel {
         return painel;
     }
 }
-
-

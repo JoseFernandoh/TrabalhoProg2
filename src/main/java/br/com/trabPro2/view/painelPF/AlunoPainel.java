@@ -1,7 +1,10 @@
 package br.com.trabPro2.view.painelPF;
 
+import br.com.trabPro2.model.Aluno;
+
 import javax.swing.*;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 
 public class AlunoPainel extends JPanel {
 
@@ -86,6 +89,23 @@ public class AlunoPainel extends JPanel {
         butao = new JButton("Cadastro");
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
+
+        butao.addActionListener(e -> {
+            try {
+                Aluno aluno = new Aluno();
+                aluno.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
+                aluno.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
+                aluno.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
+
+                ControllerDB.addDB(aluno);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
+                ex.printStackTrace();
+            }
+
+            ControllerPainel.clearForm(form);
+        });
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
 

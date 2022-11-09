@@ -2,6 +2,8 @@ package br.com.trabPro2.view.painelPF;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.SimpleDateFormat;
+
 
 public class CoordernadorPainel extends JPanel {
 
@@ -87,8 +89,27 @@ public class CoordernadorPainel extends JPanel {
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
 
+
+        butao.addActionListener(e -> {
+            try {
+                Coordenador coordenador = new Coordenador();
+                coordenador.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
+                coordenador.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
+                coordenador.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
+
+                ControllerDB.addDB(coordenador);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
+                ex.printStackTrace();
+            }
+
+            ControllerPainel.clearForm(form);
+        });
+
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
         return painel;
     }
 }
+

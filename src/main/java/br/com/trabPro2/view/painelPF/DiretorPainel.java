@@ -2,6 +2,8 @@ package br.com.trabPro2.view.painelPF;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.SimpleDateFormat;
+
 
 public class DiretorPainel extends JPanel {
 
@@ -86,6 +88,23 @@ public class DiretorPainel extends JPanel {
         butao = new JButton("Cadastro");
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
+
+        butao.addActionListener(e -> {
+            try {
+                Diretor diretor = new Diretor();
+                diretor.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
+                diretor.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
+                diretor.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
+
+                ControllerDB.addDB(diretor);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
+                ex.printStackTrace();
+            }
+
+            ControllerPainel.clearForm(form);
+        });
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
