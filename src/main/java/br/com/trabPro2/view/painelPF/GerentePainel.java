@@ -1,7 +1,14 @@
 package br.com.trabPro2.view.painelPF;
 
+import br.com.trabPro2.db.ControllerDB;
+import br.com.trabPro2.model.Gerente;
+import br.com.trabPro2.model.Professor;
+import br.com.trabPro2.util.ControllerPainel;
+
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 
 public class GerentePainel extends JPanel {
 
@@ -30,7 +37,7 @@ public class GerentePainel extends JPanel {
         label.setPreferredSize(new Dimension(450, 30));
         label.setFont(new Font("Arial", Font.PLAIN, 25));
         label.setHorizontalTextPosition(SwingConstants.CENTER);
-        painel.add(label, BorderLayout.PAGE_START);.
+        painel.add(label, BorderLayout.PAGE_START);
 
         JPanel form = new JPanel(new GridBagLayout());
 
@@ -58,6 +65,16 @@ public class GerentePainel extends JPanel {
 
         gridBagConstraints.gridy++;
 
+        try{
+            input = new JFormattedTextField(new MaskFormatter("##/##/####"));
+            input.setPreferredSize(new Dimension(150,20));
+            input.setName("DataNascimento");
+            form.add(input, gridBagConstraints);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Data Invalida");
+            e.printStackTrace();
+        }
+
         input = new JTextField();
         input.setPreferredSize(new Dimension(150,20));
         form.add(input, gridBagConstraints);
@@ -70,6 +87,16 @@ public class GerentePainel extends JPanel {
         form.add(label, gridBagConstraints);
 
         gridBagConstraints.gridy++;
+
+        try{
+            input = new JFormattedTextField(new MaskFormatter("###.###.###-##"));
+            input.setPreferredSize(new Dimension(150,20));
+            input.setName("CPF");
+            form.add(input, gridBagConstraints);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "CPF Invalido");
+            e.printStackTrace();
+        }
 
         input = new JTextField();
         input.setPreferredSize(new Dimension(150,20));
@@ -86,6 +113,23 @@ public class GerentePainel extends JPanel {
         butao = new JButton("Cadastro");
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
+
+        butao.addActionListener(e -> {
+            try {
+                Gerente gerente= new Gerente();
+                gerente.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
+                gerente.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
+                gerente.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
+
+                ControllerDB.addDB(gerente);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
+                ex.printStackTrace();
+            }
+
+            ControllerPainel.clearForm(form);
+        });
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
