@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.text.SimpleDateFormat;
 
+
 public class CoordernadorPainel extends JPanel {
 
     public CoordernadorPainel() {
@@ -88,6 +89,7 @@ public class CoordernadorPainel extends JPanel {
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
 
+
         butao.addActionListener(e -> {
             try {
                 Coordenador coordenador = new Coordenador();
@@ -110,3 +112,4 @@ public class CoordernadorPainel extends JPanel {
         return painel;
     }
 }
+

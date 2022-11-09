@@ -119,6 +119,24 @@ public class SecFinanceiroPainel extends JPanel {
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
 
+        butao.addActionListener(e -> {
+            try {
+                SecFinanceira secFinanceira = new SecFinanceira();
+                secFinanceira.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
+                secFinanceira.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
+                secFinanceira.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
+
+                ControllerDB.addDB(secFinanceira);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
+                ex.printStackTrace();
+            }
+
+            ControllerPainel.clearForm(form);
+
+        });
+
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
         return painel;

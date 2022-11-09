@@ -119,6 +119,24 @@ public class SecAcademicoPainel extends JPanel {
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
 
+        butao.addActionListener(e -> {
+            try {
+                SecAcademica secAcademica = new SecAcademica();
+                secAcademica.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
+                secAcademica.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
+                secAcademica.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
+
+                ControllerDB.addDB(secAcademica);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
+                ex.printStackTrace();
+            }
+
+            ControllerPainel.clearForm(form);
+
+        });
+        
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
         return painel;

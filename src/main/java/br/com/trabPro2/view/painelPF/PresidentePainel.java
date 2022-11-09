@@ -1,7 +1,14 @@
 package br.com.trabPro2.view.painelPF;
 
+import br.com.trabPro2.db.ControllerDB;
+import br.com.trabPro2.model.Presidente;
+import br.com.trabPro2.model.Professor;
+import br.com.trabPro2.util.ControllerPainel;
+
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 
 public class PresidentePainel extends JPanel {
 
@@ -57,6 +64,16 @@ public class PresidentePainel extends JPanel {
         form.add(label, gridBagConstraints);
 
         gridBagConstraints.gridy++;
+        
+        try{
+            input = new JFormattedTextField(new MaskFormatter("##/##/####"));
+            input.setPreferredSize(new Dimension(150,20));
+            input.setName("DataNascimento");
+            form.add(input, gridBagConstraints);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Data Invalida");
+            e.printStackTrace();
+        }
 
         input = new JTextField();
         input.setPreferredSize(new Dimension(150,20));
@@ -70,6 +87,16 @@ public class PresidentePainel extends JPanel {
         form.add(label, gridBagConstraints);
 
         gridBagConstraints.gridy++;
+
+        try{
+            input = new JFormattedTextField(new MaskFormatter("###.###.###-##"));
+            input.setPreferredSize(new Dimension(150,20));
+            input.setName("CPF");
+            form.add(input, gridBagConstraints);
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "CPF Invalido");
+            e.printStackTrace();
+        }
 
         input = new JTextField();
         input.setPreferredSize(new Dimension(150,20));
@@ -86,10 +113,22 @@ public class PresidentePainel extends JPanel {
         butao = new JButton("Cadastro");
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
+        
+        try {
+            Presidente presidente = new Presidente();
+            presidente.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
+            presidente.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
+            presidente.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
+
+            ControllerDB.addDB(presidente);
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
+            ex.printStackTrace();
+        }
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
         return painel;
     }
 }
-
