@@ -1,5 +1,6 @@
 package br.com.trabPro2.view.painelPF;
 
+import br.com.trabPro2.model.Gerente;
 import br.com.trabPro2.db.ControllerDB;
 import br.com.trabPro2.model.Diretor;
 import br.com.trabPro2.util.ControllerPainel;
@@ -24,6 +25,7 @@ public class DiretorPainel extends JPanel {
         JTabbedPane tab = new JTabbedPane();
 
         tab.addTab("Cadastro", painelCadastro());
+        tab.addTab("Cadastrar Conta", painelCriarContraAddDiretor());
 
         this.add(tab);
 
@@ -136,6 +138,130 @@ public class DiretorPainel extends JPanel {
         });
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
+
+        return painel;
+    }
+
+    private JPanel painelCriarContraAddDiretor(){
+        JPanel painel = new JPanel(new BorderLayout());
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        JLabel label;
+        JButton butao;
+        JTextField input;
+
+        gridBagConstraints.insets = new Insets(5,0,5,0);
+
+        label = new JLabel("Cadastrar Conta Diretor");
+        label.setPreferredSize(new Dimension(450, 30));
+        label.setFont(new Font("Arial", Font.PLAIN, 25));
+        label.setHorizontalTextPosition(SwingConstants.CENTER);
+        painel.add(label, BorderLayout.PAGE_START);
+
+        JPanel form = new JPanel(new GridBagLayout());
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 6;
+
+        JPanel labelDiretor = new JPanel(new FlowLayout());
+
+        label = new JLabel("Diretor: ");
+        label.setFont(new Font("Arial", Font.PLAIN, 15));
+        label.setPreferredSize(new Dimension(100,20));
+        labelDiretor.add(label);
+
+        label = new JLabel("Nenhuma Pessoa Selecionada");
+        label.setFont(new Font("Arial", Font.PLAIN, 15));
+        label.setPreferredSize(new Dimension(200,20));
+        labelDiretor.add(label);
+
+        butao = new JButton("Procurar");
+        butao.setPreferredSize(new Dimension(100,20));
+        labelDiretor.add(butao);
+
+        butao.addActionListener(e->{
+            ControllerPainel.TelaProcurarBean(Diretor.class);
+        });
+
+        form.add(labelDiretor,gridBagConstraints);
+
+        gridBagConstraints.gridy++;
+
+        JPanel labelGerente = new JPanel(new FlowLayout());
+
+        label = new JLabel("Gerente: ");
+        label.setFont(new Font("Arial", Font.PLAIN, 15));
+        label.setPreferredSize(new Dimension(100,20));
+        labelGerente.add(label);
+
+        label = new JLabel("Nenhuma Pessoa Selecionada");
+        label.setFont(new Font("Arial", Font.PLAIN, 15));
+        label.setPreferredSize(new Dimension(200,20));
+        labelGerente.add(label);
+
+        butao = new JButton("Procurar");
+        butao.setPreferredSize(new Dimension(100,20));
+        labelGerente.add(butao);
+
+        butao.addActionListener(e->{
+            ControllerPainel.TelaProcurarBean(Gerente.class);
+        });
+
+        form.add(labelGerente,gridBagConstraints);
+
+        gridBagConstraints.gridy++;
+
+        label = new JLabel("Numero da Conta: ");
+        label.setFont(new Font("Arial", Font.PLAIN, 15));
+        label.setPreferredSize(new Dimension(150,20));
+        form.add(label, gridBagConstraints);
+
+        gridBagConstraints.gridy++;
+
+        input = new JTextField();
+        input.setPreferredSize(new Dimension(150,20));
+        input.setName("Conta");
+        form.add(input, gridBagConstraints);
+
+        gridBagConstraints.gridy++;
+
+        label = new JLabel("Numero da Agencia: ");
+        label.setFont(new Font("Arial", Font.PLAIN, 15));
+        label.setPreferredSize(new Dimension(150,20));
+        form.add(label, gridBagConstraints);
+
+        gridBagConstraints.gridy++;
+
+        input = new JTextField();
+        input.setPreferredSize(new Dimension(150,20));
+        input.setName("Agencia");
+        form.add(input, gridBagConstraints);
+
+        painel.add(form,BorderLayout.CENTER);
+
+        JPanel pageEnd = new JPanel(new FlowLayout());
+
+        butao = new JButton("Voltar");
+        butao.setPreferredSize(new Dimension(150,20));
+        pageEnd.add(butao);
+
+        butao.addActionListener(e-> {
+            jframe.dispose();
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.inicializarPrograma();
+        });
+
+        butao = new JButton("Cadastro");
+        butao.setPreferredSize(new Dimension(150,20));
+        pageEnd.add(butao);
+
+        butao.addActionListener(e -> {
+
+        });
+
+        painel.add(pageEnd,BorderLayout.PAGE_END);
+
+        System.out.println("Dentro");
 
         return painel;
     }
