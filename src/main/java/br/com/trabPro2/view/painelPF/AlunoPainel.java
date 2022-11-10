@@ -1,5 +1,6 @@
 package br.com.trabPro2.view.painelPF;
 
+import br.com.trabPro2.db.ControllerDB;
 import br.com.trabPro2.model.Aluno;
 import br.com.trabPro2.model.Gerente;
 import br.com.trabPro2.model.Professor;
@@ -13,7 +14,11 @@ import java.text.SimpleDateFormat;
 
 public class AlunoPainel extends JPanel {
 
-    public AlunoPainel() {
+    private final JFrame jframe;
+
+    public AlunoPainel(JFrame jFrame) {
+
+        this.jframe = jFrame;
 
         setLayout(new BorderLayout());
 

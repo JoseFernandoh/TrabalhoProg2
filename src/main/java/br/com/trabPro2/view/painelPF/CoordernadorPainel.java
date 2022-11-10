@@ -2,6 +2,8 @@ package br.com.trabPro2.view.painelPF;
 
 import br.com.trabPro2.model.Gerente;
 import br.com.trabPro2.model.Professor;
+import br.com.trabPro2.db.ControllerDB;
+import br.com.trabPro2.model.Coordenador;
 import br.com.trabPro2.util.ControllerPainel;
 import br.com.trabPro2.view.TelaPrincipal;
 
@@ -13,7 +15,11 @@ import java.text.SimpleDateFormat;
 
 public class CoordernadorPainel extends JPanel {
 
-    public CoordernadorPainel() {
+    private final JFrame jframe;
+
+    public CoordernadorPainel(JFrame jframe) {
+
+        this.jframe = jframe;
 
         setLayout(new BorderLayout());
 
@@ -105,10 +111,15 @@ public class CoordernadorPainel extends JPanel {
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
 
+        butao.addActionListener(e-> {
+            jframe.dispose();
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.inicializarPrograma();
+        });
+
         butao = new JButton("Cadastro");
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
-
 
         butao.addActionListener(e -> {
             try {

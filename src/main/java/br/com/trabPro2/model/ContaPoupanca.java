@@ -2,9 +2,9 @@ package br.com.trabPro2.model;
 
 public class ContaPoupanca implements Conta {
 
-    float saldo;
-    int conta;
-    int agencia;
+    private float saldo;
+    private int numeroConta;
+    private int nuemroAgencia;
 
     private Pessoa titular;
     private Gerente gerente;
@@ -17,22 +17,21 @@ public class ContaPoupanca implements Conta {
         this.saldo = saldo;
     }
 
-    public int getConta() {
-        return conta;
+    public int getNumeroConta() {
+        return numeroConta;
     }
 
-    public void setConta(int conta) {
-        this.conta = conta;
+    public void setNumeroConta(int numeroConta) {
+        this.numeroConta = numeroConta;
     }
 
-    public int getAgencia() {
-        return agencia;
+    public int getNuemroAgencia() {
+        return nuemroAgencia;
     }
 
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
+    public void setNuemroAgencia(int nuemroAgencia) {
+        this.nuemroAgencia = nuemroAgencia;
     }
-
 
     @Override
     public Pessoa getTitular() {

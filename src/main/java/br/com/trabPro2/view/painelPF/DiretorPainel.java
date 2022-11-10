@@ -1,6 +1,8 @@
 package br.com.trabPro2.view.painelPF;
 
 import br.com.trabPro2.model.Gerente;
+import br.com.trabPro2.db.ControllerDB;
+import br.com.trabPro2.model.Diretor;
 import br.com.trabPro2.util.ControllerPainel;
 import br.com.trabPro2.view.TelaPrincipal;
 
@@ -12,7 +14,11 @@ import java.text.SimpleDateFormat;
 
 public class DiretorPainel extends JPanel {
 
-    public DiretorPainel() {
+    private final JFrame jframe;
+
+    public DiretorPainel(JFrame jframe) {
+
+        this.jframe = jframe;
 
         setLayout(new BorderLayout());
 
@@ -103,6 +109,12 @@ public class DiretorPainel extends JPanel {
         butao = new JButton("Voltar");
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
+
+        butao.addActionListener(e-> {
+            jframe.dispose();
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.inicializarPrograma();
+        });
 
         butao = new JButton("Cadastro");
         butao.setPreferredSize(new Dimension(150,20));
