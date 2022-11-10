@@ -1,7 +1,7 @@
 package br.com.trabPro2.model;
 
 public class Aluno extends Pessoa implements PessoaFisica{
-    private int matricula;
+     private int matricula;
 
     public Aluno() {
 

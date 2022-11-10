@@ -1,9 +1,9 @@
 package br.com.trabPro2.model;
 
 public class ContaCorrente implements Conta {
-    float saldo;
-    int conta;
-    int agencia;
+    private float saldo;
+    private int numeroConta;
+    private int numeroAgencia;
     private Pessoa titular;
     private Gerente gerente;
 
@@ -16,22 +16,21 @@ public class ContaCorrente implements Conta {
         this.saldo = saldo;
     }
 
-    public int getConta() {
-        return conta;
+    public int getNumeroConta() {
+        return numeroConta;
     }
 
-    public void setConta(int conta) {
-        this.conta = conta;
+    public void setNumeroConta(int numeroConta) {
+        this.numeroConta = numeroConta;
     }
 
-    public int getAgencia() {
-        return agencia;
+    public int getNumeroAgencia() {
+        return numeroAgencia;
     }
 
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
+    public void setNumeroAgencia(int numeroAgencia) {
+        this.numeroAgencia = numeroAgencia;
     }
-
 
     @Override
     public Pessoa getTitular() {

@@ -10,13 +10,13 @@ public class TelaPessoaFisica extends TelaGeral{
         JTabbedPane tab = new JTabbedPane();
 
         tab.addTab("Professor", new ProfessorPainel(this));
-        tab.addTab("Aluno", new AlunoPainel());
-        tab.addTab("Presidente", new PresidentePainel());
-        tab.addTab("Diretor", new DiretorPainel());
-        tab.addTab("Coordenador", new CoordernadorPainel());
+        tab.addTab("Aluno", new AlunoPainel(this));
+        tab.addTab("Presidente", new PresidentePainel(this));
+        tab.addTab("Diretor", new DiretorPainel(this));
+        tab.addTab("Coordenador", new CoordernadorPainel(this));
         tab.addTab("SecAcademico", new SecAcademicoPainel(this));
         tab.addTab("SecFinanceiro", new SecFinanceiroPainel(this));
-        tab.addTab("Gerente", new GerentePainel());
+        tab.addTab("Gerente", new GerentePainel(this));
 
         this.add(tab);
     }

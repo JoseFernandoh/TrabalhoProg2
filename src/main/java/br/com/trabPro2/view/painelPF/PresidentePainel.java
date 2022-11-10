@@ -2,8 +2,8 @@ package br.com.trabPro2.view.painelPF;
 
 import br.com.trabPro2.db.ControllerDB;
 import br.com.trabPro2.model.Presidente;
-import br.com.trabPro2.model.Professor;
 import br.com.trabPro2.util.ControllerPainel;
+import br.com.trabPro2.view.TelaPrincipal;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
@@ -12,7 +12,11 @@ import java.text.SimpleDateFormat;
 
 public class PresidentePainel extends JPanel {
 
-    public PresidentePainel() {
+    private final JFrame jframe;
+
+    public PresidentePainel(JFrame jframe) {
+
+        this.jframe = jframe;
 
         setLayout(new BorderLayout());
 
@@ -54,6 +58,7 @@ public class PresidentePainel extends JPanel {
 
         input = new JTextField();
         input.setPreferredSize(new Dimension(150,20));
+        input.setName("Nome");
         form.add(input, gridBagConstraints);
 
         gridBagConstraints.gridy++;
@@ -110,22 +115,33 @@ public class PresidentePainel extends JPanel {
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
 
+        butao.addActionListener(e-> {
+            jframe.dispose();
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            telaPrincipal.inicializarPrograma();
+        });
+
         butao = new JButton("Cadastro");
         butao.setPreferredSize(new Dimension(150,20));
         pageEnd.add(butao);
-        
-        try {
-            Presidente presidente = new Presidente();
-            presidente.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
-            presidente.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
-            presidente.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
 
-            ControllerDB.addDB(presidente);
+        butao.addActionListener(e ->{
 
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
-            ex.printStackTrace();
-        }
+            try {
+                Presidente presidente = new Presidente();
+                presidente.setNome(ControllerPainel.getValuePainelName(form,"Nome"));
+                presidente.setCpf(ControllerPainel.getValuePainelName(form,"CPF"));
+                presidente.setDataNascimento(new SimpleDateFormat("dd/MM/yyyy").parse(ControllerPainel.getValuePainelName(form,"DataNascimento")));
+
+                ControllerDB.addDB(presidente);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Não foi Possivel Cadastrar Tente Novamente");
+                ex.printStackTrace();
+            }
+
+        });
+
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
