@@ -188,7 +188,7 @@ public class PresidentePainel extends JPanel {
         labelPresidente.add(butao);
 
         butao.addActionListener(e->{
-            ControllerPainel.TelaProcurarBean(SecAcademica.class);
+            ControllerPainel.TelaProcurarBean(Presidente.class);
         });
 
         form.add(labelPresidente,gridBagConstraints);
