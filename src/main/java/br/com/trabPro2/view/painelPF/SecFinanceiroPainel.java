@@ -1,7 +1,6 @@
 package br.com.trabPro2.view.painelPF;
 
 import br.com.trabPro2.db.ControllerDB;
-import br.com.trabPro2.model.Professor;
 import br.com.trabPro2.model.SecFinanceira;
 import br.com.trabPro2.util.ControllerPainel;
 import br.com.trabPro2.view.TelaPrincipal;
