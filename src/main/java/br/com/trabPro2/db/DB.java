@@ -11,6 +11,8 @@ public class DB {
     private static long idGlobal;
 
     private final static Map<String, List<AbstractClass>> DB = new HashMap<>();
+    private final static Faculdade faculdade = new Faculdade();
+    private final static Banco banco = new Banco();
 
     static {
         DB.put(Professor.class.getSimpleName(), new ArrayList<>());
@@ -30,5 +32,13 @@ public class DB {
 
     public static Map<String, List<AbstractClass>> getDB() {
         return DB;
+    }
+
+    public static Faculdade getFaculdade() {
+        return faculdade;
+    }
+
+    public static Banco getBanco() {
+        return banco;
     }
 }

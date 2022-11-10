@@ -240,8 +240,6 @@ public class SecAcademicoPainel extends JPanel {
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
-        System.out.println("DENTRO");
-
         return painel;
     }
 

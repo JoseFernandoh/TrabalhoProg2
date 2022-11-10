@@ -26,6 +26,7 @@ public class PresidentePainel extends JPanel {
         JTabbedPane tab = new JTabbedPane();
 
         tab.addTab("Cadastro", painelCadastro());
+        tab.addTab("Cadastrar Conta", painelCriarContaPresidente());
 
         this.add(tab);
 
@@ -246,8 +247,6 @@ public class PresidentePainel extends JPanel {
         });
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
-
-        System.out.println("DENTRO");
 
         return painel;
     }

@@ -43,7 +43,9 @@ public class TelaPrincipal extends TelaGeral {
         });
 
         this.pessoaJuridica.addActionListener(e ->{
-            System.out.println("Funcionando 2");
+            super.dispose();
+            TelaPessoaJuridica trlaPJ = new TelaPessoaJuridica();
+            trlaPJ.inicializarPrograma();
         });
 
     }

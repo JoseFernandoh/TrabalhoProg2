@@ -24,6 +24,7 @@ public class GerentePainel extends JPanel {
         JTabbedPane tab = new JTabbedPane();
 
         tab.addTab("Cadastro", painelCadastro());
+        tab.addTab("Cadastrar Conta", painelCriarContraAddGerente());
 
         this.add(tab);
 
@@ -266,8 +267,6 @@ public class GerentePainel extends JPanel {
         });
 
         painel.add(pageEnd, BorderLayout.PAGE_END);
-
-        System.out.println("Dentro");
 
         return painel;
     }

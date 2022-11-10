@@ -262,8 +262,6 @@ public class CoordernadorPainel extends JPanel {
 
         painel.add(pageEnd,BorderLayout.PAGE_END);
 
-        System.out.println("Dentro");
-
         return painel;
     }
 }
