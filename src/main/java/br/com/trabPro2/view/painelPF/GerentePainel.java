@@ -186,7 +186,7 @@ public class GerentePainel extends JPanel {
         labelGerente.add(butao);
 
         butao.addActionListener(e -> {
-            ControllerPainel.TelaProcurarBean(Professor.class);
+            ControllerPainel.TelaProcurarBean(Gerente.class);
         });
 
         form.add(labelGerente, gridBagConstraints);
